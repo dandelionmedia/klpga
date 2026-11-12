@@ -18,6 +18,93 @@ main{padding:34px clamp(16px,2.5vw,45px) 80px}.hero{margin-bottom:26px}.eyebrow{
 @media(max-width:760px){body{font-size:16px}.topin{padding:10px 12px;gap:9px}.brand strong{font-size:17px}.brand small{font-size:9px;letter-spacing:1px}.brand span{display:none}.topin .btn{padding:8px 10px;min-height:40px;font-size:13px}.layout aside{top:64px;height:calc(100dvh - 64px);width:min(340px,92vw)}.shade{inset:64px 0 0}main{padding:19px 10px 80px}.hero h1{font-size:29px}.hero p{font-size:15px}.stat span{font-size:12px}.mobilebar{top:64px;padding:9px 0;gap:8px}.mobilebar .btn{font-size:15px;padding:10px 9px}.panel{border-radius:16px;margin-bottom:17px}.panelHead{padding:14px 15px}.panelHead strong{font-size:17px}.hint{font-size:13px}.slideTools{padding:13px;gap:10px}.slideControls{gap:5px;flex-wrap:wrap}.count{font-size:16px;min-width:80px}.jump{width:68px;font-size:15px;padding:9px}.btn{font-size:14px;min-height:43px;padding:9px 12px}.quick{padding:0 12px 14px}.quick button{font-size:13px;padding:8px 10px}.promptbody{padding:17px}.ptitle{font-size:25px}.notice{font-size:14px;padding:14px 15px}.actionrow{gap:9px;margin:17px 0}.actionrow .btn{font-size:15px;min-height:47px;padding:11px 13px}.fieldtitle{font-size:18px;margin:23px 0 11px}.field label{font-size:14px}.field input{font-size:16px}.promptpreview{font-size:15px;padding:17px;line-height:1.9;max-height:none}.foot{padding:15px;gap:12px}.foot .btn{width:100%;font-size:16px;min-height:50px}.check{font-size:15px}.navitem{font-size:16px}.navhead{font-size:15px}}
 @media(max-width:390px){.topin .btn{font-size:12px;padding:8px}.brand strong{font-size:15px}.brand small{font-size:8px}.slideControls .btn{padding:8px}.count{min-width:68px}.hero h1{font-size:26px}}
 @media(prefers-reduced-motion:reduce){.btn{transition:none}.btn:hover{transform:none}}
+
+.panel:fullscreen{overflow:auto;background:#09281f}.panel:fullscreen .slidewrap{overflow:auto}.panel:fullscreen .slideImage{max-height:calc(100dvh - 170px);width:100%;object-fit:contain}
+/* RESPONSIVE REFINEMENT — phone / tablet / desktop; one natural page scroll */
+:root{--header-h:86px}
+html{scroll-padding-top:calc(var(--header-h) + 14px);overscroll-behavior-x:none}
+body{min-width:0;overflow-x:clip;overflow-y:visible;-webkit-text-size-adjust:100%}
+.topin,.layout,.workspace,.panel,.hero,.slideTools,.actionrow,.fieldGrid{min-width:0}
+main,.panel,.promptbody,.slideTools,.slideControls,.field,.fieldGrid{min-width:0}
+.topin{flex-wrap:nowrap}.brand{min-width:0;overflow:hidden}.brand strong,.brand small,.brand span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.layout{min-height:calc(100svh - var(--header-h))}
+aside{top:var(--header-h);height:calc(100dvh - var(--header-h));overscroll-behavior:contain;-webkit-overflow-scrolling:touch;scrollbar-gutter:stable}
+.workspace{align-items:start}
+.hero>div:first-child{min-width:0}
+.slidewrap{overflow:hidden;touch-action:pan-y pinch-zoom;overscroll-behavior:contain}
+.slideImage{touch-action:pan-y pinch-zoom;max-width:100%;user-select:none;-webkit-user-drag:none}
+.promptpreview{max-height:none;overflow:visible;overflow-wrap:anywhere;word-break:break-word;white-space:pre-wrap}
+.field input{min-width:0;max-width:100%}
+#slidesPanel,#promptPanel{scroll-margin-top:calc(var(--header-h) + 16px)}
+.navitem{overflow-wrap:anywhere}
+.slideTools .slideControls{min-width:0}
+.slideTools .slideControls:last-child{margin-left:auto}
+button{touch-action:manipulation}
+@media(min-width:1500px){.workspace{grid-template-columns:minmax(0,1.06fr) minmax(450px,.94fr)}main{padding-left:clamp(26px,3vw,56px);padding-right:clamp(26px,3vw,56px)}}
+@media(min-width:901px) and (max-width:1499px){.workspace{grid-template-columns:1fr}.layout{grid-template-columns:252px minmax(0,1fr)}.promptpreview{font-size:16px}}
+@media(min-width:901px) and (max-width:1150px){.layout{grid-template-columns:235px minmax(0,1fr)}main{padding:24px 20px 65px}}
+@media(max-width:900px){
+ .layout{display:block;min-height:calc(100svh - var(--header-h))}
+ .layout aside{position:fixed;z-index:45;top:var(--header-h);left:0;bottom:0;width:min(355px,90vw);height:calc(100dvh - var(--header-h));transform:translateX(-105%);transition:transform .24s ease;box-shadow:6px 10px 28px #0003;visibility:hidden}
+ .layout aside.open{transform:translateX(0);visibility:visible}
+ .shade{position:fixed;inset:var(--header-h) 0 0;z-index:44;background:#0008;display:none}
+ .shade.open{display:block}
+ .mobileonly{display:inline-flex}
+ main{padding:24px clamp(14px,3.5vw,28px) 90px}
+ .workspace{display:grid;grid-template-columns:minmax(0,1fr);gap:18px}
+ .panel{width:100%;margin:0}
+ .hero{flex-wrap:wrap}
+ .hero h1{font-size:clamp(26px,4vw,36px)}
+ .stat{margin-top:8px}
+ .promptpreview{max-height:none;overflow:visible}
+}
+@media(max-width:760px){
+ :root{--header-h:64px}
+ .topin{padding:9px 10px;gap:7px;min-height:64px}
+ .topin .btn{flex:none;min-height:42px;white-space:nowrap;padding:8px 10px}
+ .brand strong{font-size:clamp(13px,3.6vw,18px)}
+ .brand small{font-size:clamp(7px,2vw,10px)}
+ .brand span{display:none}
+ .layout aside{top:var(--header-h);height:calc(100dvh - var(--header-h));width:min(355px,94vw)}
+ .shade{inset:var(--header-h) 0 0}
+ main{padding:15px 10px max(68px,env(safe-area-inset-bottom))}
+ .hero{display:block;margin-bottom:14px}
+ .hero h1{font-size:clamp(24px,6vw,31px);line-height:1.3}
+ .hero p{font-size:15px}
+ .stat{gap:6px}.stat span{font-size:12px;padding:6px 10px}
+ .mobilebar{display:flex;position:sticky;top:var(--header-h);z-index:20;background:rgba(247,245,240,.97);padding:8px 0 11px;gap:7px;backdrop-filter:blur(8px)}
+ .mobilebar button{flex:1;min-width:0;min-height:44px;font-size:clamp(12px,3.5vw,15px);padding:8px 6px;white-space:nowrap}
+ .workspace{display:block}
+ .mobilehide{display:none!important}
+ .panel{border-radius:15px;margin-bottom:14px}
+ .panelHead{padding:13px;gap:6px;flex-wrap:wrap}
+ .panelHead strong{font-size:17px}
+ .panelHead .hint{font-size:12px}
+ .slideTools{display:grid;grid-template-columns:1fr;gap:10px;padding:12px}
+ .slideTools .slideControls{width:100%;justify-content:space-between;gap:5px}
+ .slideTools .slideControls:last-child{margin-left:0;justify-content:flex-end}
+ .slideTools .btn{min-height:42px;padding:8px 11px;font-size:14px}
+ .count{flex:1;min-width:0;font-size:15px}
+ .jump{font-size:16px;min-height:42px;width:76px}
+ .quick{padding:0 12px 15px;gap:6px}
+ .quick button{flex:1 1 45%;min-height:40px;overflow-wrap:anywhere}
+ .promptbody{padding:15px}
+ .ptitle{font-size:clamp(22px,5.8vw,27px)}
+ .notice{font-size:14px}
+ .actionrow{display:grid;grid-template-columns:1fr;gap:9px}
+ .actionrow .btn{width:100%;min-height:48px;font-size:15px;white-space:normal}
+ .fieldGrid{grid-template-columns:minmax(0,1fr);gap:12px}
+ .field input{font-size:16px;min-height:50px}
+ .promptpreview{padding:16px;font-size:15px;line-height:1.88;max-height:none;overflow:visible}
+ .foot{flex-wrap:wrap}.foot .btn{width:100%}
+ .toast{width:max-content;max-width:calc(100vw - 28px);bottom:calc(15px + env(safe-area-inset-bottom))}
+}
+@media(max-width:380px){.topin .btn{font-size:11px;padding:7px 8px}.brand strong{font-size:13px}.brand small{font-size:7px}.slideTools .btn{font-size:13px}.hero h1{font-size:24px}}
+@media(orientation:landscape) and (max-width:900px) and (max-height:520px){
+ .topin{min-height:55px}.mobilebar{padding:5px 0}.mobilebar button{min-height:36px}
+ .slideImage{max-height:none}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.layout aside{transition:none}}
 </style></head><body>
 <header class="top"><div class="topin"><button class="btn ghost mobileonly" id="menuBtn" aria-label="목차 열기">☰ 목차</button><div class="brand" id="homeBrand" title="첫 슬라이드로 이동"><small>PREMIUM GOLF BRANDING MASTERCLASS</small><strong>골프 브랜딩 마스터클래스</strong><span>AI 퍼스널브랜딩 · 4차시 · 실습 48종</span></div><button class="btn ghost smallhide" id="slideTopBtn">첫 슬라이드</button><button class="btn gold" id="promptTopBtn">실습목차</button></div></header>
 <div id="shade" class="shade"></div><div class="layout"><aside id="sidebar"><div class="side-title">48가지 실습 바로가기</div><input id="search" class="search" placeholder="실습 제목 검색" aria-label="실습 제목 검색"><div id="nav"></div></aside><main><section class="hero"><div><div class="eyebrow">KLPGA PROFESSIONAL BRANDING</div><h1>교육생 실습 웹페이지</h1><p>강의슬라이드 83장과 실무형 AI 프롬프트 48종을 한곳에서 확인하세요.</p></div><div class="stat"><span>83 슬라이드</span><span>48 실습</span><span id="progress">완료 0/48</span></div></section>
@@ -32,5 +119,5 @@ function resetCopyStatus(){for(const id of ['copyTop','copyBottom']){const b=$(i
 function copyCompleted(){for(const id of ['copyTop','copyBottom']){const b=$(id);b.classList.add('copied');b.textContent='프롬프트 복사완료';b.setAttribute('aria-label','프롬프트 복사완료')}toast('프롬프트 복사완료 · ChatGPT 또는 Gemini에 붙여넣으세요.')}
 async function copyPrompt(){const t=assembled();try{if(navigator.clipboard&&window.isSecureContext){await navigator.clipboard.writeText(t);copyCompleted()}else{fallbackCopy(t)}}catch(e){fallbackCopy(t)}}
 function fallbackCopy(t){const el=document.createElement('textarea');el.value=t;el.setAttribute('readonly','');el.style.cssText='position:fixed;top:0;left:0;opacity:0;pointer-events:none';document.body.appendChild(el);el.focus();el.select();let ok=false;try{ok=document.execCommand('copy')}catch(e){}el.remove();if(ok)copyCompleted();else toast('복사에 실패했습니다. 브라우저의 복사 권한을 확인해 주세요.')}
-async function init(){try{let response=await fetch('data.json');if(!response.ok)throw Error('HTTP '+response.status);data=await response.json();renderPrompt();setSlide(0)}catch(e){$('promptTitle').textContent='실습 자료를 불러오지 못했습니다';$('relation').textContent='GitHub Pages 또는 로컬 웹서버에서 접속해 주세요. index.html 옆에 data.json 파일이 있어야 합니다.';console.error(e)}}$('prev').onclick=()=>setSlide(page-1);$('next').onclick=()=>setSlide(page+1);$('go').onclick=()=>setSlide(Number($('jump').value));$('jump').onkeydown=e=>{if(e.key==='Enter')$('go').click()};$('firstSlide').onclick=$('slideTopBtn').onclick=$('homeBrand').onclick=()=>{setSlide(0);showTab('slide');window.scrollTo({top:0,behavior:'smooth'})};$('relatedSlide').onclick=goRelated;$('prevPrompt').onclick=()=>setPrompt(current-1,true);$('nextPrompt').onclick=()=>setPrompt(current+1,true);$('promptTopBtn').onclick=()=>{$('sidebar').classList.toggle('open');$('shade').classList.toggle('open');$('search').focus()};$('menuBtn').onclick=$('promptTopBtn').onclick;$('shade').onclick=()=>{$('sidebar').classList.remove('open');$('shade').classList.remove('open')};$('search').oninput=renderNav;$('example').onclick=()=>{examples=!examples;renderPrompt();toast(examples?'예시내용이 입력칸에 표시되었습니다.':'예시내용이 해제되었습니다.')};$('clear').onclick=()=>{if(!confirm('이 실습의 직접 입력한 값을 지울까요?'))return;delete saved.values[data[current].id];examples=false;persist();renderPrompt();toast('입력값을 지웠습니다.')};$('toggleFields').onclick=()=>{collapsed=!collapsed;renderPrompt()};$('completed').onchange=e=>{saved.done[data[current].id]=e.target.checked;persist();renderPrompt()};$('copyTop').onclick=$('copyBottom').onclick=copyPrompt;$('tabSlide').onclick=()=>showTab('slide');$('tabPrompt').onclick=()=>showTab('prompt');$('fullscreen').onclick=async()=>{const box=$('slidesPanel');try{if(document.fullscreenElement)await document.exitFullscreen();else await box.requestFullscreen()}catch{toast('기기에서 전체화면을 지원하지 않습니다.')}};let startX=0;$('slideWrap').addEventListener('touchstart',e=>{if(e.touches.length===1)startX=e.touches[0].clientX},{passive:true});$('slideWrap').addEventListener('touchend',e=>{if(e.changedTouches.length!==1)return;let diff=e.changedTouches[0].clientX-startX;if(Math.abs(diff)>70)setSlide(page+(diff<0?1:-1))},{passive:true});document.addEventListener('keydown',e=>{if(['INPUT','TEXTAREA'].includes(document.activeElement?.tagName))return;if(e.key==='ArrowRight')setSlide(page+1);if(e.key==='ArrowLeft')setSlide(page-1)});init();
+async function init(){try{let response=await fetch('data.json');if(!response.ok)throw Error('HTTP '+response.status);data=await response.json();renderPrompt();setSlide(0)}catch(e){$('promptTitle').textContent='실습 자료를 불러오지 못했습니다';$('relation').textContent='GitHub Pages 또는 로컬 웹서버에서 접속해 주세요. index.html 옆에 data.json 파일이 있어야 합니다.';console.error(e)}}$('prev').onclick=()=>setSlide(page-1);$('next').onclick=()=>setSlide(page+1);$('go').onclick=()=>setSlide(Number($('jump').value));$('jump').onkeydown=e=>{if(e.key==='Enter')$('go').click()};$('firstSlide').onclick=$('slideTopBtn').onclick=$('homeBrand').onclick=()=>{setSlide(0);showTab('slide');window.scrollTo({top:0,behavior:'smooth'})};$('relatedSlide').onclick=goRelated;$('prevPrompt').onclick=()=>setPrompt(current-1,true);$('nextPrompt').onclick=()=>setPrompt(current+1,true);$('promptTopBtn').onclick=()=>{$('sidebar').classList.toggle('open');$('shade').classList.toggle('open');if($('sidebar').classList.contains('open'))$('search').focus({preventScroll:true})};$('menuBtn').onclick=$('promptTopBtn').onclick;$('shade').onclick=()=>{$('sidebar').classList.remove('open');$('shade').classList.remove('open')};$('search').oninput=renderNav;$('example').onclick=()=>{examples=!examples;renderPrompt();toast(examples?'예시내용이 입력칸에 표시되었습니다.':'예시내용이 해제되었습니다.')};$('clear').onclick=()=>{if(!confirm('이 실습의 직접 입력한 값을 지울까요?'))return;delete saved.values[data[current].id];examples=false;persist();renderPrompt();toast('입력값을 지웠습니다.')};$('toggleFields').onclick=()=>{collapsed=!collapsed;renderPrompt()};$('completed').onchange=e=>{saved.done[data[current].id]=e.target.checked;persist();renderPrompt()};$('copyTop').onclick=$('copyBottom').onclick=copyPrompt;$('tabSlide').onclick=()=>showTab('slide');$('tabPrompt').onclick=()=>showTab('prompt');$('fullscreen').onclick=async()=>{const box=$('slidesPanel');try{if(document.fullscreenElement)await document.exitFullscreen();else await box.requestFullscreen()}catch{toast('기기에서 전체화면을 지원하지 않습니다.')}};let startX=0,startY=0,gestureSingle=false;$('slideWrap').addEventListener('touchstart',e=>{gestureSingle=e.touches.length===1;if(gestureSingle){startX=e.touches[0].clientX;startY=e.touches[0].clientY}},{passive:true});$('slideWrap').addEventListener('touchend',e=>{if(!gestureSingle||e.changedTouches.length!==1)return;gestureSingle=false;const dx=e.changedTouches[0].clientX-startX,dy=e.changedTouches[0].clientY-startY;if(Math.abs(dx)>75&&Math.abs(dx)>Math.abs(dy)*1.5)setSlide(page+(dx<0?1:-1))},{passive:true});$('slideWrap').addEventListener('touchcancel',()=>{gestureSingle=false},{passive:true});document.addEventListener('keydown',e=>{if(e.key==='Escape'){$('sidebar').classList.remove('open');$('shade').classList.remove('open')}if(['INPUT','TEXTAREA'].includes(document.activeElement?.tagName))return;if(e.key==='ArrowRight')setSlide(page+1);if(e.key==='ArrowLeft')setSlide(page-1)});init();
 </script></body></html>
